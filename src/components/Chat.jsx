@@ -87,44 +87,46 @@ const Chat = () => {
 
   return (
     withUser && (
-    <div className="flex flex-col h-[70vh] max-w-4xl mx-auto p-4 border my-10 rounded-2xl">
-      <h1 className="text-2xl font-bold mb-4">Chat with {withUser.firstName.charAt(0).toUpperCase()+withUser.firstName.slice(1)}</h1>
+    <div className="flex flex-col h-[85vh] sm:h-[70vh] w-full max-w-4xl mx-auto px-2 sm:px-4 py-2 sm:py-4 border my-2 sm:my-10 rounded-lg sm:rounded-2xl">
+      <h1 className="text-lg sm:text-2xl font-bold mb-2 sm:mb-4 px-2 truncate">
+        Chat with {withUser.firstName.charAt(0).toUpperCase()+withUser.firstName.slice(1)}
+      </h1>
       
-      <div className="flex-1 overflow-y-auto mb-4">
+      <div className="flex-1 overflow-y-auto mb-2 sm:mb-4 px-1 sm:px-2">
         {sentMessages.length === 0 ? (
-          <p className="text-center text-gray-500">No messages yet.</p>
+          <p className="text-center text-gray-500 text-sm sm:text-base mt-8">No messages yet.</p>
         ) : (
           sentMessages.map((msg, index) => (
             <div key={index} className={msg.senderId === userId ? 'chat chat-end' : 'chat chat-start'}>
               <div className="chat-image avatar">
-                <div className="w-10 rounded-full">
+                <div className="w-8 sm:w-10 rounded-full">
                   <img
                     alt="User avatar"
                     src={msg.senderId === userId ? user.photoUrl || "https://img.daisyui.com/images/profile/demo/anakeen@192.webp" : withUser.photoUrl || "https://img.daisyui.com/images/profile/demo/kenobee@192.webp"}
                   />
                 </div>
               </div>
-              <div className="chat-header">
+              <div className="chat-header text-xs sm:text-sm">
                 {msg.senderName || (msg.senderId === userId ? user.firstName : 'User')}
                 <time className="text-xs opacity-50 ml-1">{msg.timestamp}</time>
               </div>
-              <div className="chat-bubble">{msg.text}</div>
-              <div className="chat-footer opacity-50">Delivered</div>
+              <div className="chat-bubble text-sm sm:text-base wrap-break-word max-w-[75vw] sm:max-w-xs">{msg.text}</div>
+              <div className="chat-footer opacity-50 text-xs">Delivered</div>
             </div>
           ))
         )}
         <div ref={messagesEndRef} />
       </div>
       
-      <form className="flex gap-2" onSubmit={(e)=>{e.preventDefault(); sendMessage(newMessage); setNewMessage('');}} >
+      <form className="flex gap-1 sm:gap-2 px-1 sm:px-0" onSubmit={(e)=>{e.preventDefault(); sendMessage(newMessage); setNewMessage('');}} >
         <input 
         value={newMessage}
         onChange={(e)=>setNewMessage(e.target.value)}
           type="text" 
           placeholder="Type a message..." 
-          className="input input-bordered flex-1"
+          className="input input-bordered flex-1 text-sm sm:text-base h-10 sm:h-12 min-w-0"
         />
-        <button className="btn btn-primary" type="submit">Send</button>
+        <button className="btn btn-primary text-sm sm:text-base h-10 sm:h-12 px-3 sm:px-4 min-w-fit" type="submit">Send</button>
       </form>
     </div>
   )

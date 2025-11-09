@@ -75,7 +75,7 @@ const EditPage = ({user}) => {
           
           {/* Header Section */}
           <div className='mb-6 sm:mb-8'>
-            <h1 className='text-3xl sm:text-4xl lg:text-5xl font-bold bg-gradient-to-r from-primary to-secondary bg-clip-text text-transparent mb-2'>
+            <h1 className='text-3xl sm:text-4xl lg:text-5xl font-bold bg-linear-to-r from-primary via-secondary to-accent bg-clip-text text-transparent mb-2'>
               Edit Your Profile
             </h1>
             <p className='text-base-content/70 text-sm sm:text-base'>
@@ -88,7 +88,7 @@ const EditPage = ({user}) => {
             
             {/* Edit Form - Left Side */}
             <div className='w-full lg:w-1/2'>
-              <form onSubmit={(e)=>e.preventDefault()} className='card bg-base-200 shadow-xl border border-base-300'>
+              <form onSubmit={(e)=>e.preventDefault()} className='card bg-linear-to-br from-base-200 to-base-300 shadow-2xl border border-base-300 rounded-2xl'>
                 <div className='card-body p-4 sm:p-6'>
                   
                   {/* Form Header */}
@@ -229,7 +229,7 @@ const EditPage = ({user}) => {
                   <div className='card-actions justify-end mt-4'>
                     <button 
                       onClick={handleSave} 
-                      className={`btn btn-primary w-full sm:w-auto gap-2 ${isLoading ? 'loading' : ''}`}
+                      className={`btn btn-primary w-full sm:w-auto gap-2 shadow-lg hover:shadow-primary/50 transition-all duration-300 hover:-translate-y-1 ${isLoading ? 'loading' : ''}`}
                       disabled={isLoading}
                     >
                       {!isLoading && (

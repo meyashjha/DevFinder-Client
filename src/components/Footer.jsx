@@ -2,12 +2,12 @@ import React from 'react'
 
 const Footer = () => {
   return (
-    <footer className="footer footer-center bg-base-200 text-base-content p-6 mt-auto border-t border-base-300">
+    <footer className="footer footer-center bg-base-200 text-base-content p-6 border-t border-base-300">
       <div className="w-full max-w-7xl">
         <div className="grid grid-flow-col gap-4 mb-4">
           {/* GitHub */}
           <a 
-            href="https://github.com" 
+            href="https://github.com/meyashjha" 
             target="_blank" 
             rel="noopener noreferrer"
             className="hover:text-primary transition-colors"
@@ -25,7 +25,7 @@ const Footer = () => {
           
           {/* Twitter */}
           <a 
-            href="https://twitter.com" 
+            href="https://x.com/meyashjha" 
             target="_blank" 
             rel="noopener noreferrer"
             className="hover:text-primary transition-colors"
@@ -43,7 +43,7 @@ const Footer = () => {
           
           {/* LinkedIn */}
           <a 
-            href="https://linkedin.com" 
+            href="https://www.linkedin.com/in/meyashjha/" 
             target="_blank" 
             rel="noopener noreferrer"
             className="hover:text-primary transition-colors"

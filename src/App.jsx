@@ -19,20 +19,22 @@ function AppRoutes() {
   useUser(); // Fetch user on app load
   
   return (
-    <>
+    <div className="flex flex-col min-h-screen">
     <Navbar/>
-      <Routes>
-        <Route path='/login' element={<Login/>} />
-        <Route path='/signup' element={<Signup/>} />
-          <Route path='/' element={<Feed/>}/>
-          <Route path='/profile' element={<Profile/>}/>
-          <Route path='*' element={<ErrorPage/>} />
-          <Route path='/connections' element={<MyConnections/>}/>
-          <Route path='/requests' element={<MyRequests/>}/>
-          <Route path='/chat/:id' element={<Chat/>}/>
-      </Routes>
+      <main className="flex-1">
+        <Routes>
+          <Route path='/login' element={<Login/>} />
+          <Route path='/signup' element={<Signup/>} />
+            <Route path='/' element={<Feed/>}/>
+            <Route path='/profile' element={<Profile/>}/>
+            <Route path='*' element={<ErrorPage/>} />
+            <Route path='/connections' element={<MyConnections/>}/>
+            <Route path='/requests' element={<MyRequests/>}/>
+            <Route path='/chat/:id' element={<Chat/>}/>
+        </Routes>
+      </main>
       <Footer/>
-    </>
+    </div>
   )
 }
 

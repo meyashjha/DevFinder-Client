@@ -39,7 +39,7 @@ const MyConnections = () => {
         )
     }
 
-    if(connections.length === 0){
+    if(connections?.length === 0 || !connections){
         return (
             <div className='flex flex-col items-center justify-center min-h-[60vh] px-4'>
                 <div className='text-center max-w-md'>
@@ -65,13 +65,13 @@ const MyConnections = () => {
             My Connections
           </h1>
           <p className='text-base-content/70 text-sm sm:text-base'>
-            You have {connections.length} {connections.length === 1 ? 'connection' : 'connections'}
+            You have {connections?.length || 0} {connections?.length === 1 ? 'connection' : 'connections'}
           </p>
         </div>
 
         {/* Connections Grid */}
         <div className='grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-4 sm:gap-6'>
-          {connections.map(conn => (
+          {connections?.map(conn => (
             <div 
               key={conn._id} 
               className='card bg-base-200 shadow-xl hover:shadow-2xl transition-all duration-300 hover:-translate-y-2 border border-base-300'

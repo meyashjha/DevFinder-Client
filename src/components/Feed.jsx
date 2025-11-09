@@ -27,7 +27,7 @@ const Feed = () => {
     return <div className='text-center my-15'>Loading feed...</div>;
   }
 
-  if (feed.length === 0) {
+  if (feed?.length === 0) {
     return <div className='text-center my-15'>No more users in feed!</div>;
   }
 

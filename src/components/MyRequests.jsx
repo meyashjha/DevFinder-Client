@@ -46,7 +46,7 @@ const MyRequests = () => {
         )
     }
 
-    if(requests.length === 0){
+    if(requests?.length === 0 || !requests){
         return (
             <div className='flex flex-col items-center justify-center min-h-[60vh] px-4'>
                 <div className='text-center max-w-md'>
@@ -69,13 +69,13 @@ const MyRequests = () => {
             Connection Requests
           </h1>
           <p className='text-base-content/70 text-sm sm:text-base'>
-            You have {requests.length} pending {requests.length === 1 ? 'request' : 'requests'}
+            You have {requests?.length || 0} pending {requests?.length === 1 ? 'request' : 'requests'}
           </p>
         </div>
 
         {/* Requests Grid */}
         <div className='grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-4 sm:gap-6'>
-          {requests.map(req => (
+          {requests?.map(req => (
             <div 
               key={req.fromUserId._id} 
               className='card bg-base-200 shadow-xl hover:shadow-2xl transition-all duration-300 hover:-translate-y-2 border border-base-300'

@@ -15,8 +15,13 @@ const useUser = () => {
   const fetchUser = async () => {
     try {
       const res = await axios.get(`${BASE_URL}/profile/view`, { withCredentials: true });
-      res.data.firstName = res.data.firstName.charAt(0).toUpperCase()+res.data.firstName.slice(1);
-      res.data.lastName = res.data.lastName.charAt(0).toUpperCase()+res.data.lastName.slice(1);
+      // Safely capitalize names only if they exist
+      if (res.data.firstName) {
+        res.data.firstName = res.data.firstName.charAt(0).toUpperCase() + res.data.firstName.slice(1);
+      }
+      if (res.data.lastName) {
+        res.data.lastName = res.data.lastName.charAt(0).toUpperCase() + res.data.lastName.slice(1);
+      }
       dispatch(addUser(res.data));
     } catch (err) {
       // Only redirect to login if NOT already on login/signup pages
